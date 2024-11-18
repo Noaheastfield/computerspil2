@@ -2,7 +2,10 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
+/**
+ * @author Simon Hesselberg & Noah Østfeldt
+ * @version 18-11-2024
+ */
 public class CityTest {
     private Game game;
     private Country country1;

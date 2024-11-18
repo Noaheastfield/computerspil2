@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=CountryTest
-comment0.text=\r\n\ Testklassen\ CountryTest.\r\n\r\n\ @author\ (dit\ navn\ her)\r\n\ @version\ (versionsnummer\ eller\ dato\ her)\r\n
+comment0.text=\r\n\ @author\ Simon\ Hesselberg\ &\ Noah\ \u00D8stfeldt\r\n\ @version\ 18-11-2024\r\n
 comment1.params=
 comment1.target=void\ setUp()
 comment10.params=

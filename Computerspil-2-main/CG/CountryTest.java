@@ -9,10 +9,8 @@ import java.util.HashSet;
 import java.util.TreeSet;
 
 /**
- * Testklassen CountryTest.
- *
- * @author (dit navn her)
- * @version (versionsnummer eller dato her)
+ * @author Simon Hesselberg & Noah Østfeldt
+ * @version 18-11-2024
  */
 public class CountryTest
 {
@@ -25,7 +23,7 @@ public class CountryTest
         // Create game object
         game = new Game(0);
         // Create country
-        country1 = new Country("Country 1");
+        country1 = new Country("Inprog-Country");
         country1.setGame(game);
         // Create cities
         cityA = new City("City A", 80, country1);
@@ -61,18 +59,26 @@ public class CountryTest
     @Test
     public void getCity(){
         //Test if the right city is returned by converting each result 'toString'.
-        assertEquals("City A (80)", country1.getCity("City A").toString());
-        assertEquals("City B (60)", country1.getCity("City B").toString());
-        assertEquals("City C (40)", country1.getCity("City C").toString());
-        assertEquals("City D (100)", country1.getCity("City D").toString());
+        // We do this by iterating through each city added to country1
+        for (City c : country1.getCities()) {
+            // Get the city
+            City currentCity = country1.getCity(c.getName());
+            // Assert that the current city we are looking at matches the actual city inputted.
+            // Test for city == null
+            assertNotNull(currentCity);
+            // Test for city == city
+            assertEquals(c, currentCity);
+            // Test that we can match our current city to what we print
+            assertEquals(c.toString(), currentCity.toString());
+        }
     }
     @Test
     public void getRoads(){
          //Test if each city returns the correct road-connections
-        assertEquals(cityB, country1.getRoads(cityA));
-        assertEquals(cityA, country1.getRoads(cityB));
-        assertEquals(cityD, country1.getRoads(cityC));
-        assertEquals(cityC, country1.getRoads(cityD));
+        assertEquals("[City A (80) -> City B (60) : 10]", country1.getRoads(cityA).toString());
+        assertEquals("[City B (60) -> City A (80) : 10]", country1.getRoads(cityB).toString());
+        assertEquals("[City C (40) -> City D (100) : 20]", country1.getRoads(cityC).toString());
+        assertEquals("[City D (100) -> City C (40) : 20]", country1.getRoads(cityD).toString());
     }
     @Test
     public void reset(){
@@ -97,7 +103,7 @@ public class CountryTest
     @Test
     public void testToString(){
         //Test if the correct name is returned
-        assertEquals("Country 1", country1.toString());
+        assertEquals("Inprog-Country", country1.toString());
     }
     @Test
     public void bonus(){
